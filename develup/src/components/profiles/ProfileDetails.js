@@ -1,6 +1,10 @@
-import React from 'react'
+import React from 'react';
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
-const ProfileDetails = () => {
+const ProfileDetails = (props) => {
+    const { auth } = props;
+    if (!auth.uid) return <Redirect to='/signin' />
     return (
         <div className="container">
             <div className="card mb-3">
@@ -67,4 +71,10 @@ const ProfileDetails = () => {
     )
 }
 
-export default ProfileDetails;
+const mapStateToProps = (state) => {
+    return {
+        auth: state.firebase.auth
+    }
+}
+
+export default connect(mapStateToProps)(ProfileDetails);
