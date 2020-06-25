@@ -1,0 +1,19 @@
+html {
+  min-height: 100%;
+}
+body {
+  background-image: url(/image/pbg5.jpg);
+}
+.img-holder {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  background-color: red;
+}
+
+.profile-img-holder {
+  height: 6rem;
+  width: 6rem;
+  border-radius: 50%;
+  background-color: red;
+}
