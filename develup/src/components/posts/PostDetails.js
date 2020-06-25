@@ -2,7 +2,7 @@ import React from 'react'
 
 const PostDetails = () => {
     return (
-        <div class="container">
+        <div className="container">
             <div className="card mb-3">
                 <div className="card-body">
                     <h5 className="card-title">Test Post 1</h5>
@@ -11,6 +11,7 @@ const PostDetails = () => {
                         <h6 className="card-subtitle ml-2 text-muted">Abhiram Reddy</h6>
                     </div>
                     <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <span>27 <i className="far fa-thumbs-up"></i></span>
                     <p><small>An hour ago</small></p>
                     <hr />
                     <div className="wrapper my-5 w-95">

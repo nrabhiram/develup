@@ -12,7 +12,9 @@ const PostSummary = ({ post }) => {
                         <h6 className="card-subtitle ml-2 text-muted">Abhiram Reddy</h6>
                     </div>
                     <p className="card-text">{post.content}</p>
+                    <p><em>See more</em></p>
                     <span>27 <i className="far fa-thumbs-up"></i></span>
+                    <p><small>1 hour ago</small></p>
                 </div>
             </div>
         </div>

@@ -7,7 +7,16 @@ const initState = {
 };
 
 const projectReducer = (state = initState, action) => {
-    return state;
+    switch (action.type) {
+        case 'CREATE_POST':
+            console.log('post created', action.project);
+            return state;
+        case 'CREATE_POST_FAILED':
+            console.log('post failed', action.err);
+            return state;
+        default:
+            return state;
+    }
 }
 
 export default projectReducer;
