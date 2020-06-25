@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const PostSummary = ({ post }) => {
     return (
@@ -12,7 +13,9 @@ const PostSummary = ({ post }) => {
                         <h6 className="card-subtitle ml-2 text-muted">Abhiram Reddy</h6>
                     </div>
                     <p className="card-text">{post.content}</p>
-                    <p><em>See more</em></p>
+                    <Link to={'/post/' + post.id}>
+                        <p><em>See more</em></p>
+                    </Link>
                     <span>27 <i className="far fa-thumbs-up"></i></span>
                     <p><small>1 hour ago</small></p>
                 </div>
