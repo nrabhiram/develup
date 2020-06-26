@@ -4,8 +4,19 @@ import { connect } from 'react-redux';
 import { signOut } from '../../store/actions/authAction';
 
 const SignedInLinks= (props) => {
+    const { profile } = props;
     return (
         <ul className="navbar-nav">
+            <li className="nav-item-ml-2">
+            <NavLink to="/">
+                <div className="d-flex justify-content-start my-1">
+                    <div className="img-holder">
+                        <img src={profile.avatar} />
+                    </div>
+                    <p className="ml-2 text-muted">{profile.firstName} {profile.lastName}</p>
+                </div>
+            </NavLink>
+            </li>
             <li className="nav-item ml-2">
                 <NavLink to="/create">Create Post</NavLink>
             </li>
