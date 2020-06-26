@@ -14,7 +14,9 @@ const PostDetails = (props) => {
                     <div className="card-body">
                         <h5 className="card-title">{post.title}</h5>
                         <div className="d-flex justify-content-start align-items-center my-1">
-                            <div className="img-holder"></div>
+                            <div className="img-holder">
+                                <img src="https://vignette.wikia.nocookie.net/codegeass/images/6/6a/LelouchviBritannia.jpg/revision/latest?cb=20120107132514" />
+                            </div>
                             <h6 className="card-subtitle ml-2 text-muted">{post.authorFirstName} {post.authorLastName}</h6>
                         </div>
                         <p className="card-text">{post.content}</p>
@@ -23,7 +25,9 @@ const PostDetails = (props) => {
                         <hr />
                         <div className="wrapper my-5 w-95">
                             <div className="d-flex justify-content-start align-items-center my-1">
-                                <div className="img-holder"></div>
+                                <div className="img-holder">
+                                    <img src="https://vignette.wikia.nocookie.net/codegeass/images/6/6a/LelouchviBritannia.jpg/revision/latest?cb=20120107132514" />
+                                </div>
                                 <h6 className="card-subtitle ml-2 text-muted">Abhiram Reddy</h6>
                             </div>
                             <p>Cool work dude!</p>
@@ -31,7 +35,9 @@ const PostDetails = (props) => {
                         </div>
                         <div className="wrapper my-5 w-95">
                             <div className="d-flex justify-content-start align-items-center my-1">
-                                <div className="img-holder"></div>
+                                <div className="img-holder">
+                                    <img src="https://vignette.wikia.nocookie.net/codegeass/images/6/6a/LelouchviBritannia.jpg/revision/latest?cb=20120107132514" />
+                                </div>
                                 <h6 className="card-subtitle ml-2 text-muted">Abhiram Reddy</h6>
                             </div>
                             <p>Cool work dude! Cool work dude! Cool work dude! Cool work dude!</p>
@@ -39,7 +45,9 @@ const PostDetails = (props) => {
                         </div>
                         <div className="wrapper my-5 w-95">
                             <div className="d-flex justify-content-start align-items-center my-1">
-                                <div className="img-holder"></div>
+                                <div className="img-holder">
+                                    <img src="https://vignette.wikia.nocookie.net/codegeass/images/6/6a/LelouchviBritannia.jpg/revision/latest?cb=20120107132514" />
+                                </div>
                                 <h6 className="card-subtitle ml-2 text-muted">Abhiram Reddy</h6>
                             </div>
                             <p>Cool work dude!</p>

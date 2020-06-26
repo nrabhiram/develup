@@ -9,7 +9,9 @@ const PostSummary = ({ post }) => {
                     <h5 className="card-title">{post.title}</h5>
                     <hr />
                     <div className="d-flex justify-content-start align-items-center my-1">
-                        <div className="img-holder"></div>
+                        <div className="img-holder">
+                            <img src="https://vignette.wikia.nocookie.net/naruto/images/b/bb/Itachi.png/revision/latest?cb=20160125182202" />
+                        </div>
                         <h6 className="card-subtitle ml-2 text-muted">Abhiram Reddy</h6>
                     </div>
                     <p className="card-text">{post.content}</p>

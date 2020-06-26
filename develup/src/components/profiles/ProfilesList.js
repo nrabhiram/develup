@@ -11,7 +11,9 @@ class ProfilesList extends Component {
                 <div className="card mb-3">
                     <div className="card-body">
                         <div className="d-flex justify-content-start align-items-center my-1">
-                            <div className="profile-img-holder"></div>
+                            <div className="profile-img-holder">
+                                <img src="https://vignette.wikia.nocookie.net/codegeass/images/6/6a/LelouchviBritannia.jpg/revision/latest?cb=20120107132514" />
+                            </div>
                             <div className="d-flex flex-column ml-3">
                                 <h6>Fullstack Developer</h6>
                                 <h6>MERN Stack</h6>
@@ -28,7 +30,9 @@ class ProfilesList extends Component {
                 <div className="card mb-3">
                     <div className="card-body">
                         <div className="d-flex justify-content-start align-items-center my-1">
-                            <div className="profile-img-holder"></div>
+                            <div className="profile-img-holder">
+                                <img src="https://vignette.wikia.nocookie.net/naruto/images/b/bb/Itachi.png/revision/latest?cb=20160125182202" />
+                            </div>
                             <div className="d-flex flex-column ml-3">
                                 <h6>Fullstack Developer</h6>
                                 <h6>MERN Stack</h6>
@@ -45,7 +49,9 @@ class ProfilesList extends Component {
                 <div className="card mb-3">
                     <div className="card-body">
                         <div className="d-flex justify-content-start align-items-center my-1">
-                            <div className="profile-img-holder"></div>
+                            <div className="profile-img-holder">
+                                <img src="https://cdn.myanimelist.net/images/characters/9/310307.jpg" />
+                            </div>
                             <div className="d-flex flex-column ml-3">
                                 <h6>Fullstack Developer</h6>
                                 <h6>MERN Stack</h6>
