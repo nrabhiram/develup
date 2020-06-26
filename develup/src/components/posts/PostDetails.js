@@ -15,7 +15,7 @@ const PostDetails = (props) => {
                         <h5 className="card-title">{post.title}</h5>
                         <div className="d-flex justify-content-start align-items-center my-1">
                             <div className="img-holder">
-                                <img src="https://vignette.wikia.nocookie.net/codegeass/images/6/6a/LelouchviBritannia.jpg/revision/latest?cb=20120107132514" />
+                                <img src={post.authorAvatar} />
                             </div>
                             <h6 className="card-subtitle ml-2 text-muted">{post.authorFirstName} {post.authorLastName}</h6>
                         </div>

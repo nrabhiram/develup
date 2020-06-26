@@ -24,7 +24,7 @@ class App extends Component {
           <Route path="/signup" component={SignUp}></Route>
           <Route path="/create" component={CreatePost}></Route>
           <Route path="/profiles" component={ProfilesList}></Route>
-          <Route path="/profile" component={ProfileDetails}></Route>
+          <Route path="/profile/:profile_id" component={ProfileDetails}></Route>
         </Switch>
       </BrowserRouter>
     )
