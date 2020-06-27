@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Likes from './Likes';
+import moment from 'moment';
 
 const PostSummary = ({ post }) => {
     return (
@@ -20,6 +21,7 @@ const PostSummary = ({ post }) => {
                         <p><em>See more</em></p>
                     </Link>
                     <Likes postId={post.id} />
+                    <p><small>{moment(post.createdAt.toDate().toString()).fromNow()}</small></p>
                 </div>
             </div>
         </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 
 const Comment = (props) => {
     const { comment } = props;
@@ -11,7 +12,7 @@ const Comment = (props) => {
                 <h6 className="card-subtitle ml-2 text-muted">{comment.commenterFirstName} {comment.commenterLastName}</h6>
             </div>
             <p>{comment.comment}</p>
-            <p><small>An hour ago</small></p>
+            <p><small>{moment(comment.createdAt.toDate().toString()).fromNow()}</small></p>
         </div>
     )
 }

@@ -6,6 +6,7 @@ import { Redirect } from 'react-router';
 import { addComment } from '../../store/actions/postAction';
 import CommentsList from './CommentsList';
 import Likes from './Likes';
+import moment from 'moment';
 
 class PostDetails extends Component {
     state = {
@@ -32,6 +33,7 @@ class PostDetails extends Component {
                     <div className="card mb-3">
                         <div className="card-body">
                             <h5 className="card-title">{post.title}</h5>
+                            <hr />
                             <div className="d-flex justify-content-start align-items-center my-1">
                                 <div className="img-holder">
                                     <img src={post.authorAvatar} />
@@ -40,7 +42,7 @@ class PostDetails extends Component {
                             </div>
                             <p className="card-text">{post.content}</p>
                             <Likes postId={this.state.postId} />
-                            <p><small>An hour ago</small></p>
+                            <p><small>{moment(post.createdAt.toDate().toString()).fromNow()}</small></p>
                             <hr />
                             <form onSubmit={this.handleSubmit}>
                                 <div className="form-group">
