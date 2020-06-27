@@ -3,10 +3,15 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
+import PostSummary from '../posts/PostSummary';
 
 const ProfileDetails = (props) => {
-    const { auth, user } = props;
+    console.log(props);
+    const { auth, user, userPosts } = props;
     if (!auth.uid) return <Redirect to='/signin' />
+    const postsList = userPosts ? userPosts.map(post => {
+        return <PostSummary key={post.id} post={post} />
+    }) : null;
     if (user) {
         return (
             <div className="container">
@@ -33,45 +38,7 @@ const ProfileDetails = (props) => {
                     </div>
                 </div>
                 <h3 className="mt-5 mb-3">Posts</h3>
-                <div className="card mb-3">
-                    <div className="card-body">
-                        <h5 className="card-title">Test Post 1</h5>
-                        <hr />
-                        <div className="d-flex justify-content-start align-items-center my-1">
-                            <div className="img-holder"></div>
-                            <h6 className="card-subtitle ml-2 text-muted">Abhiram Reddy</h6>
-                        </div>
-                        <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" className="card-link">Card link</a>
-                        <a href="#" className="card-link">Another link</a>
-                    </div>
-                </div>
-                <div className="card mb-3">
-                    <div className="card-body">
-                        <h5 className="card-title">Test Post 1</h5>
-                        <hr />
-                        <div className="d-flex justify-content-start align-items-center my-1">
-                            <div className="img-holder"></div>
-                            <h6 className="card-subtitle ml-2 text-muted">Abhiram Reddy</h6>
-                        </div>
-                        <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" className="card-link">Card link</a>
-                        <a href="#" className="card-link">Another link</a>
-                    </div>
-                </div>
-                <div className="card mb-3">
-                    <div className="card-body">
-                        <h5 className="card-title">Test Post 1</h5>
-                        <hr />
-                        <div className="d-flex justify-content-start align-items-center my-1">
-                            <div className="img-holder"></div>
-                            <h6 className="card-subtitle ml-2 text-muted">Abhiram Reddy</h6>
-                        </div>
-                        <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" className="card-link">Card link</a>
-                        <a href="#" className="card-link">Another link</a>
-                    </div>
-                </div>
+                    { postsList }
             </div>
         )  
     } else {
@@ -87,15 +54,21 @@ const mapStateToProps = (state, ownProps) => {
     const id = ownProps.match.params.profile_id;
     const users = state.firestore.data.users;
     const user = users ? users[id] : null;
+    const posts = state.firestore.ordered.posts;
+    const userPosts = posts ? posts.filter((post) => {
+        return post.authorId === id
+    }) : null;
     return {
         auth: state.firebase.auth,
-        user: user
+        user: user,
+        userPosts: userPosts
     }
 }
 
 export default compose(
     connect(mapStateToProps),
     firestoreConnect([
-        { collection: 'users' }
+        { collection: 'users' },
+        { collection: 'posts' }
     ])
 )(ProfileDetails);
