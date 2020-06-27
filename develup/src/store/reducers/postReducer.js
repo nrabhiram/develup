@@ -20,6 +20,15 @@ const projectReducer = (state = initState, action) => {
         case 'COMMENT_FAILED':
             console.log('comment failed', action.err);
             return state;
+        case 'LIKED_POST':
+            console.log('liked post', action.like);
+            return state;
+        case 'UNLIKED_POST':
+            console.log('unliked post');
+            return state;
+        case 'UNLIKE_POST_FAILED':
+            console.log('unlike failed');
+            return state;
         default:
             return state;
     }
