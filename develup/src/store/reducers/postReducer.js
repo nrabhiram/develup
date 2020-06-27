@@ -14,6 +14,12 @@ const projectReducer = (state = initState, action) => {
         case 'CREATE_POST_FAILED':
             console.log('post failed', action.err);
             return state;
+        case 'COMMENT_ADDED':
+            console.log('comment added', action.comment);
+            return state;
+        case 'COMMENT_FAILED':
+            console.log('comment failed', action.err);
+            return state;
         default:
             return state;
     }

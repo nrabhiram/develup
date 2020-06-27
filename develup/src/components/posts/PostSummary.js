@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Likes from './Likes';
 
 const PostSummary = ({ post }) => {
     return (
@@ -18,8 +19,7 @@ const PostSummary = ({ post }) => {
                     <Link to={'/post/' + post.id}>
                         <p><em>See more</em></p>
                     </Link>
-                    <span>27 <i className="far fa-thumbs-up"></i></span>
-                    <p><small>1 hour ago</small></p>
+                    <Likes postId={post.id} />
                 </div>
             </div>
         </div>
