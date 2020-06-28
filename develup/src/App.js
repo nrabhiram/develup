@@ -10,6 +10,7 @@ import ProfileDetails from './components/profiles/ProfileDetails';
 import Home from './components/layout/Home';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import ScrollToTop from './ScrollToTop';
+import Notifications from './components/dashboard/Notifications';
 
 
 class App extends Component {
@@ -29,6 +30,7 @@ class App extends Component {
             <Route path="/create" component={CreatePost}></Route>
             <Route path="/profiles" component={ProfilesList}></Route>
             <Route path="/profile/:profile_id" component={ProfileDetails}></Route>
+            <Route path="/notifications" component={Notifications}></Route>
           </Switch>
         </ScrollToTop>
       </BrowserRouter>

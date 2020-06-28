@@ -23,6 +23,9 @@ const SignedInLinks= (props) => {
             <li className="nav-item">
                 <NavLink to="/profiles" style={{ textDecoration: 'none', color: '#fff' }}>Profiles</NavLink>
             </li>
+            <li className="nav-item">
+                <NavLink to="/notifications" style={{ textDecoration: 'none', color: '#fff' }}>Notifications</NavLink>
+            </li>
             <li className="nav-item" style={{ color: '#fff', cursor: 'pointer' }}>
                 <a onClick={ props.signOut }>Log Out</a>
             </li>
