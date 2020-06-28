@@ -30,22 +30,20 @@ const ProfileDetails = (props) => {
                         <hr />
                         <h5>About Me</h5>
                         <p className="card-text">{user.aboutMe}</p>
-                        <p className="card-text">Visit me <a target="_blank" href="https://abhiramreddy.netlify.app/">here</a></p>
-                        <i className="fab fa-linkedin fa-2x mr-2"></i>
-                        <i className="fab fa-twitter fa-2x mr-2"></i>
-                        <i className="fab fa-github fa-2x mr-2"></i>
-                        <i className="fab fa-instagram fa-2x mr-2"></i>
+                        { user.portfolio ? <p className="card-text">Visit me <a target="_blank" href={user.portfolio}>here</a></p> : null }
+                        { user.linkedin ? <a target="_blank" href={user.linkedin}><i className="fab fa-linkedin fa-2x mr-2"></i></a> : null }
+                        { user.twitter ? <a target="_blank" href={user.twitter}><i className="fab fa-twitter fa-2x mr-2"></i></a> : null }
+                        { user.github ? <a target="_blank" href={user.github}><i className="fab fa-github fa-2x mr-2"></i></a> : null }
+                        { user.instagram ? <a target="_blank" href={user.instagram}><i className="fab fa-instagram fa-2x mr-2"></i></a> : null }
                     </div>
                 </div>
-                <h3 className="mt-5 mb-3 titles">Posts</h3>
-                    { postsList }
+                {userPosts && userPosts.length !== 0 ? <h3 className="mt-5 mb-3 titles">Posts</h3> : null }
+                { postsList }
             </div>
         )  
     } else {
         return (
-            <div className="spinner-border text-warning" role="status">
-                <span className="sr-only">Loading...</span>
-            </div>
+            <div className="container"></div>
         )
     }
 }

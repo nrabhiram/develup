@@ -41,7 +41,7 @@ class PostDetails extends Component {
                                 <h6 className="card-subtitle ml-2 text-muted">{post.authorFirstName} {post.authorLastName}</h6>
                             </div>
                             <p className="card-text">{post.content}</p>
-                            {post.link ? <div className="wrapper"><span>Link: </span><a href={post.link} target="_blank">{post.link}</a></div> : null }
+                            { post.link ? <div className="wrapper"><span>Link: </span><a href={post.link} target="_blank">{post.link}</a></div> : null }
                             <Likes postId={this.state.postId} />
                             <p><small>{moment(post.createdAt.toDate().toString()).fromNow()}</small></p>
                             <hr />
@@ -58,9 +58,7 @@ class PostDetails extends Component {
             )
         } else {
             return (
-                <div className="spinner-border text-warning" role="status">
-                    <span className="sr-only">Loading...</span>
-                </div>
+                <div className="container"></div>
             )
         }
     }
