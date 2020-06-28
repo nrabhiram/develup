@@ -45,11 +45,11 @@ export const signUp = (newUser) => {
                 email: newUser.email,
                 password: newUser.password,
                 aboutMe: newUser.aboutMe
-            }).then(() => {
-                dispatch({ type:'SIGNUP_SUCCESS' })
-            }).catch((err) => {
-                dispatch({ type:'SIGNUP_FAILED', err})
             })
+        }).then(() => {
+            dispatch({ type:'SIGNUP_SUCCESS' })
+        }).catch((err) => {
+            dispatch({ type:'SIGNUP_FAILED', err})
         })
     }
 }

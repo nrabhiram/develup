@@ -15,18 +15,18 @@ class CreatePost extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.createProject(this.state);
+        this.props.history.push('/');
     }
     render() {
         return (
             <div className="container">
+                <h2 className="titles">Create Post</h2>
                 <form onSubmit={this.handleSubmit}>
                     <div className="form-group">
-                        <label htmlFor="title">Post Title</label>
-                        <input type="text" className="form-control" id="title" onChange={this.handleChange} />
+                        <input type="text" className="form-control" id="title" placeholder="Title" onChange={this.handleChange} />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="content">Post Content</label>
-                        <textarea className="form-control" id="content" rows="10" onChange={this.handleChange}></textarea>
+                        <textarea className="form-control" id="content" rows="10" placeholder="Content" onChange={this.handleChange}></textarea>
                     </div>
                     <button type="submit" className="btn btn-primary">Create post</button>
                 </form>

@@ -11,6 +11,7 @@ class Dashboard extends Component {
         if (!auth.uid) return <Redirect to='/signin' />
         return (
             <div className="container">
+                <h2 className="titles">Feed</h2>
                 <div className="notification text-right">
                     <i className="far fa-bell fa-2x"></i>
                 </div>

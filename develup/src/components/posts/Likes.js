@@ -14,7 +14,7 @@ class Likes extends Component {
         }
     }
     render() {
-        const likedIcon = this.props.isLiked && this.props.isLiked.length !== 0 ? <i className="fas fa-thumbs-up ml-2" onClick={this.handleClick}></i> : <i className="far fa-thumbs-up ml-2" onClick={this.handleClick}></i>;
+        const likedIcon = this.props.isLiked && this.props.isLiked.length !== 0 ? <i className="fas fa-thumbs-up ml-2 like" onClick={this.handleClick}></i> : <i className="far fa-thumbs-up ml-2 like" onClick={this.handleClick}></i>;
         return (
             <div className="wrapper">
                 <span>{this.props.postLikes && this.props.postLikes.length}</span>

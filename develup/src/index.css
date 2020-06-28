@@ -27,4 +27,15 @@ body {
   object-fit: cover;
 }
 
+.titles {
+  color: #fff;
+}
 
+.like {
+  color: #1DA1F2;
+  transition: all ease-in-out 0.3s;
+}
+
+.like:hover {
+  transform: scale(1.3)
+}

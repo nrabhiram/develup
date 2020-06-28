@@ -37,7 +37,7 @@ const ProfileDetails = (props) => {
                         <i className="fab fa-instagram fa-2x mr-2"></i>
                     </div>
                 </div>
-                <h3 className="mt-5 mb-3">Posts</h3>
+                <h3 className="mt-5 mb-3 titles">Posts</h3>
                     { postsList }
             </div>
         )  

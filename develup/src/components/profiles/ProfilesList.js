@@ -9,7 +9,10 @@ class ProfilesList extends Component {
     render() {
         const { auth, users } = this.props;
         if (!auth.uid) return <Redirect to='/signin' />
-        const usersList = users ? users.map(user => {
+        const otherUsers = users ? users.filter(user => {
+            return user.id !== auth.uid
+        }) : null;
+        const usersList = otherUsers ? otherUsers.map((user) => {
             return <ProfileSummary key={user.id} user={user} />
         }) : null;
         return (

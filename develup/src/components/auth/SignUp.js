@@ -55,80 +55,72 @@ class SignUp extends Component {
         )
     }
     render() {
-        const { auth } = this.props;
+        const { auth, authError } = this.props;
         if (auth.uid) return <Redirect to='/' />
         return (
             <div className="container">
-                <h2>User Info</h2>
+                <h2 className="titles">Sign Up</h2>
                 <form onSubmit={this.handleSubmit}>
-                    <h5>User Profile</h5>
+                    <h5 className="titles">User Info</h5>
                     <div className="form-row">
                         <div className="form-group col-sm-6">
-                            <label htmlFor="firstName">First Name</label>
-                            <input type="text" className="form-control" id="firstName" onChange={this.handleChange} />
+                            <input type="text" className="form-control" id="firstName" placeholder="First Name" required onChange={this.handleChange} />
                         </div>
                         <div className="form-group col-sm-6">
-                            <label htmlFor="lastName">Last Name</label>
-                            <input type="text" className="form-control" id="lastName" onChange={this.handleChange} />
+                            <input type="text" className="form-control" id="lastName" placeholder="Last Name" required onChange={this.handleChange} />
+                        </div>
+                    </div>
+                    <div className="form-row">
+                        <div className="form-group col-sm-6">
+                            <input type="email" className="form-control" id="email" placeholder="Email Address" onChange={this.handleChange} />
+                        </div>
+                        <div className="form-group col-sm-6">
+                            <input type="password" className="form-control" id="password" placeholder="Password" onChange={this.handleChange} />
                         </div>
                     </div>
                     <div className="form-group">
-                        <label htmlFor="exampleFormControlFile1">Example file input</label>
                         <input type="file" className="form-control-file" id="exampleFormControlFile1" accept="image/*" onChange={this.handleImageChange} />
+                        <small className="form-text text-muted">Choose an image for your profile.</small>
                     </div>
-                    <h5>Skills</h5>
+                    <h5 className="titles">Skills</h5>
                     <div className="form-row">
                         <div className="form-group col-sm-7">
-                            <label htmlFor="role">Role</label>
-                            <input type="text" className="form-control" id="role" onChange={this.handleChange} />
+                            <input type="text" className="form-control" id="role" placeholder="Role" required onChange={this.handleChange} />
                             <small className="form-text text-muted">What do you do? Ex. Front-End Developer, Game Developer, Designer etc.</small>
                         </div>
                         <div className="form-group col-sm-5">
-                            <label htmlFor="techStack">Tech Stack</label>
-                            <input type="text" className="form-control" id="techStack" onChange={this.handleChange} />
+                            <input type="text" className="form-control" id="techStack" placeholder="Tech Stack" required onChange={this.handleChange} />
+                            <small className="form-text text-muted">Let us know what languages/tools you use for your work.</small>
                         </div>
                     </div>
-                    <h5>Social Handles</h5>
+                    <h5 className="titles">Social Handles</h5>
                     <div className="form-group">
-                        <label htmlFor="portfolio">Portfolio</label>
-                            <input type="text" className="form-control" id="portfolio" onChange={this.handleChange} />
+                            <input type="text" className="form-control" id="portfolio" placeholder="Portfolio Site" onChange={this.handleChange} />
                     </div>
                     <div className="form-row">
                         <div className="form-group col-sm-6">
-                            <label htmlFor="linkedin">LinkedIn</label>
-                            <input type="text" className="form-control" id="linkedin" onChange={this.handleChange} />
+                            <input type="text" className="form-control" id="linkedin" placeholder="LinkedIn" onChange={this.handleChange} />
                         </div>
                         <div className="form-group col-sm-6">
-                            <label htmlFor="twitter">Twitter</label>
-                            <input type="text" className="form-control" id="twitter" onChange={this.handleChange} />
+                            <input type="text" className="form-control" id="twitter" placeholder="Twitter" onChange={this.handleChange} />
                         </div>
                     </div>
                     <div className="form-row">
                         <div className="form-group col-sm-6">
-                            <label htmlFor="github">GitHub</label>
-                            <input type="text" className="form-control" id="github" onChange={this.handleChange} />
+                            <input type="text" className="form-control" id="github" placeholder="GitHub" onChange={this.handleChange} />
                         </div>
                         <div className="form-group col-sm-6">
-                            <label htmlFor="instagram">Instagram</label>
-                            <input type="text" className="form-control" id="instagram" onChange={this.handleChange} />
+                            <input type="text" className="form-control" id="instagram" placeholder="Instagram" onChange={this.handleChange} />
                         </div>
                     </div>
-                    <h5>Authentication</h5>
-                    <div className="form-row">
-                        <div className="form-group col-sm-6">
-                            <label htmlFor="email">Email Adress</label>
-                            <input type="email" className="form-control" id="email" onChange={this.handleChange} />
-                        </div>
-                        <div className="form-group col-sm-6">
-                            <label htmlFor="password">Password</label>
-                            <input type="password" className="form-control" id="password" onChange={this.handleChange} />
-                        </div>
-                    </div>
-                    <h5>About You</h5>
+                    <h5 className="titles">About You</h5>
                     <div className="form-group">
-                        <textarea className="form-control" id="aboutMe" rows="5" onChange={this.handleChange}></textarea>
+                        <textarea className="form-control" id="aboutMe" rows="5" placeholder="Share something about yourself so that people can connect better with you!" required onChange={this.handleChange}></textarea>
                     </div>
+                    { authError ? <div className="alert alert-danger" role="alert">{authError}</div> : null}
                     <button type="submit" className="btn btn-primary mb-2">Submit</button>
+                    <div className="center-text titles">
+                    </div>
                 </form>
             </div>
         )
@@ -136,8 +128,10 @@ class SignUp extends Component {
 }
 
 const mapStateToProps = (state) => {
+    console.log(state);
     return {
-        auth: state.firebase.auth
+        auth: state.firebase.auth,
+        authError: state.auth.authError
     }
 }
 
