@@ -9,7 +9,7 @@ const Navbar = (props) => {
     const links = auth.uid ? <SignedInLinks profile={profile} userId={auth.uid} /> : <SignedOutLinks />
     return (
         <nav className="navbar navbar-dark">
-            { auth.uid ? <NavLink to="/feed"><span className="navbar-brand mb-0 h1">DevelUp</span></NavLink> : <NavLink to="/"><span className="navbar-brand mb-0 h1">DevelUp</span></NavLink> }
+            { auth.uid ? <NavLink to="/feed"><span className="navbar-brand mb-0 h1">DevlUp</span></NavLink> : <NavLink to="/"><span className="navbar-brand mb-0 h1">DevlUp</span></NavLink> }
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu">
                 <span className="navbar-toggler-icon"></span>
             </button>

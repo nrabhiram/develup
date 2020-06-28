@@ -9,7 +9,7 @@ const Notifications = (props) => {
     const { auth, notifications } = props;
     if (!auth.uid) return <Redirect to='/' />
     const notificationsList = notifications ? notifications.map(notification => {
-        return  <div className="card">
+        return  <div className="card my-1">
                     <div className="card-body">
                         <div className="d-flex justify-content-start align-items-center my-1">
                             <div className="img-holder mr-1">
