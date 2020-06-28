@@ -52,3 +52,16 @@ body {
 .navbar {
   background-color: #2b6779
 }
+
+a.social-links {
+  color: #8dd0f8;
+  transition: ease all 0.3s;
+}
+
+a.social-links:hover {
+  color: #6dc2f7;
+}
+
+.browse-files {
+  width: 25%;
+}

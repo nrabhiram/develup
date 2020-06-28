@@ -6,7 +6,7 @@ import moment from 'moment';
 const PostSummary = ({ post }) => {
     const formatTitle = (title, limit = 450) => {
         const newTitle = [];
-        if (title.length > 20) {
+        if (title.length > 450) {
             title.split(' ').reduce((acc, cur) => {
                 if (acc + cur.length <= limit) {
                     newTitle.push(cur);

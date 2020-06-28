@@ -8,7 +8,7 @@ class SignUp extends Component {
     state = {
         firstName: '',
         lastName: '',
-        avatar: '',
+        avatar: 'https://www.digitalwebreview.com/wp-content/uploads/2018/09/default-user-image-300x300.png',
         role: '',
         techStack: '',
         portfolio: '',
@@ -31,7 +31,6 @@ class SignUp extends Component {
     }
     handleImageChange = (e) => {
         const image = e.target.files[0]
-        console.log(image)
 
         const uploadTask = storage.ref(`image/${image.name}`).put(image)
         uploadTask.on(
@@ -73,24 +72,25 @@ class SignUp extends Component {
                     <div className="form-row">
                         <div className="form-group col-sm-6">
                             <input type="email" className="form-control" id="email" placeholder="Email Address" onChange={this.handleChange} />
+                            <small className="form-text titles">We'll never share your email with anyone else.</small>
                         </div>
                         <div className="form-group col-sm-6">
                             <input type="password" className="form-control" id="password" placeholder="Password" onChange={this.handleChange} />
                         </div>
                     </div>
                     <div className="form-group">
-                        <input type="file" className="form-control-file" id="exampleFormControlFile1" accept="image/*" onChange={this.handleImageChange} />
-                        <small className="form-text text-muted">Choose an image for your profile.</small>
+                        <input type="file" className="form-control-file browse-files" id="exampleFormControlFile1" accept="image/x-png,image/jpeg" onChange={this.handleImageChange} />
+                        <small className="form-text titles">Choose an image for your profile.</small>
                     </div>
                     <h5 className="titles">Skills</h5>
                     <div className="form-row">
                         <div className="form-group col-sm-7">
                             <input type="text" className="form-control" id="role" placeholder="Role" required onChange={this.handleChange} />
-                            <small className="form-text text-muted">What do you do? Ex. Front-End Developer, Game Developer, Designer etc.</small>
+                            <small className="form-text titles">What do you do? Ex. Front-End Developer, Game Developer, Designer etc.</small>
                         </div>
                         <div className="form-group col-sm-5">
                             <input type="text" className="form-control" id="techStack" placeholder="Tech Stack" required onChange={this.handleChange} />
-                            <small className="form-text text-muted">Let us know what languages/tools you use for your work.</small>
+                            <small className="form-text titles">Let us know what languages/tools you use for your work.</small>
                         </div>
                     </div>
                     <h5 className="titles">Social Handles</h5>
@@ -99,18 +99,18 @@ class SignUp extends Component {
                     </div>
                     <div className="form-row">
                         <div className="form-group col-sm-6">
-                            <input type="text" className="form-control" id="linkedin" placeholder="LinkedIn" onChange={this.handleChange} />
+                            <input type="text" className="form-control" id="linkedin" placeholder="LinkedIn URL" onChange={this.handleChange} />
                         </div>
                         <div className="form-group col-sm-6">
-                            <input type="text" className="form-control" id="twitter" placeholder="Twitter" onChange={this.handleChange} />
+                            <input type="text" className="form-control" id="twitter" placeholder="Twitter URL" onChange={this.handleChange} />
                         </div>
                     </div>
                     <div className="form-row">
                         <div className="form-group col-sm-6">
-                            <input type="text" className="form-control" id="github" placeholder="GitHub" onChange={this.handleChange} />
+                            <input type="text" className="form-control" id="github" placeholder="GitHub URL" onChange={this.handleChange} />
                         </div>
                         <div className="form-group col-sm-6">
-                            <input type="text" className="form-control" id="instagram" placeholder="Instagram" onChange={this.handleChange} />
+                            <input type="text" className="form-control" id="instagram" placeholder="Instagram URL" onChange={this.handleChange} />
                         </div>
                     </div>
                     <h5 className="titles">About You</h5>
@@ -128,7 +128,6 @@ class SignUp extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state);
     return {
         auth: state.firebase.auth,
         authError: state.auth.authError

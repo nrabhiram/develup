@@ -24,12 +24,11 @@ class PostDetails extends Component {
         e.target.reset();
     }
     render() {
-        console.log(this.props);
         const { post, auth, comments } = this.props;
         if (!auth.uid) return <Redirect to='/' />
         if (post) {
             return (
-                <div className="container">
+                <div className="container py-2">
                     <div className="card mb-3">
                         <div className="card-body">
                             <h5 className="card-title">{post.title}</h5>

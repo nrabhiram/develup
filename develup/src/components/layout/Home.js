@@ -10,13 +10,11 @@ const Home = (props) => {
             <h5>Meet like-minded people<br />
             share your ideas<br/>
             Develup together!⚡</h5>
-            <p>PS: You can use GIFs for your profile.</p>
         </div>
     )
 }
 
 const mapStateToProps = (state) => {
-    console.log(state);
     return {
         auth: state.firebase.auth
     }

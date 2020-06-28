@@ -22,14 +22,14 @@ const Notifications = (props) => {
                 </div>
     }) : null;
     return (
-        <div className="container">
+        <div className="container py-2">
+            <h2 className="titles">Notifications</h2>
             {notificationsList}
         </div>
     )
 }
 
 const mapStateToProps = (state) => {
-    console.log(state);
     return {
         auth: state.firebase.auth,
         notifications: state.firestore.ordered.notifications
@@ -39,6 +39,6 @@ const mapStateToProps = (state) => {
 export default compose(
     connect(mapStateToProps),
     firestoreConnect([
-        { collection: 'notifications' }
+        { collection: 'notifications', orderBy: ['time', 'desc'] }
     ])
 )(Notifications)

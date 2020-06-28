@@ -16,7 +16,8 @@ class ProfilesList extends Component {
             return <ProfileSummary key={user.id} user={user} />
         }) : null;
         return (
-            <div className="container">
+            <div className="container py-2">
+                <h2 className="titles">Profiles</h2>
                 { usersList }
             </div>
         )
@@ -24,7 +25,6 @@ class ProfilesList extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state);
     return {
         auth: state.firebase.auth,
         users: state.firestore.ordered.users

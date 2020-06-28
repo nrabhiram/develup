@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createProject } from '../../store/actions/postAction';
+import { Redirect } from 'react-router';
 
 class CreatePost extends Component {
     state = {
@@ -19,6 +20,8 @@ class CreatePost extends Component {
         this.props.history.push('/feed');
     }
     render() {
+        const { auth } = this.props;
+        if (!auth.uid) return <Redirect to='/' />
         return (
             <div className="container">
                 <h2 className="titles">Create Post</h2>
@@ -39,10 +42,16 @@ class CreatePost extends Component {
     }
 }
 
+const mapStateToProps = (state) => {
+    return {
+        auth: state.firebase.auth
+    }
+}
+
 const mapDispatchToProps = (dispatch) => {
     return {
         createProject: (project) => dispatch(createProject(project))
     }
 }
 
-export default connect(null, mapDispatchToProps)(CreatePost);
+export default connect(mapStateToProps, mapDispatchToProps)(CreatePost);

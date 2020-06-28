@@ -6,7 +6,6 @@ import { compose } from 'redux';
 import PostSummary from '../posts/PostSummary';
 
 const ProfileDetails = (props) => {
-    console.log(props);
     const { auth, user, userPosts } = props;
     if (!auth.uid) return <Redirect to='/' />
     const postsList = userPosts ? userPosts.map(post => {
@@ -14,7 +13,7 @@ const ProfileDetails = (props) => {
     }) : null;
     if (user) {
         return (
-            <div className="container">
+            <div className="container py-2">
                 <div className="card mb-3">
                     <div className="card-body">
                         <div className="d-flex justify-content-start align-items-center my-1">
@@ -31,10 +30,10 @@ const ProfileDetails = (props) => {
                         <h5>About Me</h5>
                         <p className="card-text">{user.aboutMe}</p>
                         { user.portfolio ? <p className="card-text">Visit me <a target="_blank" href={user.portfolio}>here</a></p> : null }
-                        { user.linkedin ? <a target="_blank" href={user.linkedin}><i className="fab fa-linkedin fa-2x mr-2"></i></a> : null }
-                        { user.twitter ? <a target="_blank" href={user.twitter}><i className="fab fa-twitter fa-2x mr-2"></i></a> : null }
-                        { user.github ? <a target="_blank" href={user.github}><i className="fab fa-github fa-2x mr-2"></i></a> : null }
-                        { user.instagram ? <a target="_blank" href={user.instagram}><i className="fab fa-instagram fa-2x mr-2"></i></a> : null }
+                        { user.linkedin ? <a className="social-links" target="_blank" href={user.linkedin}><i className="fab fa-linkedin fa-2x mr-2"></i></a> : null }
+                        { user.twitter ? <a className="social-links" target="_blank" href={user.twitter}><i className="fab fa-twitter fa-2x mr-2"></i></a> : null }
+                        { user.github ? <a className="social-links" target="_blank" href={user.github}><i className="fab fa-github fa-2x mr-2"></i></a> : null }
+                        { user.instagram ? <a className="social-links" target="_blank" href={user.instagram}><i className="fab fa-instagram fa-2x mr-2"></i></a> : null }
                     </div>
                 </div>
                 {userPosts && userPosts.length !== 0 ? <h3 className="mt-5 mb-3 titles">Posts</h3> : null }

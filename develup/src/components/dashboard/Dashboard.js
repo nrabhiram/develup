@@ -10,11 +10,8 @@ class Dashboard extends Component {
         const { posts, auth } = this.props;
         if (!auth.uid) return <Redirect to='/' />
         return (
-            <div className="container">
+            <div className="container py-2">
                 <h2 className="titles">Feed</h2>
-                <div className="notification text-right">
-                    <i className="far fa-bell fa-2x"></i>
-                </div>
                 <PostsList posts={posts} />
             </div>
         )
@@ -22,7 +19,6 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state)
     return {
         posts: state.firestore.ordered.posts,
         auth: state.firebase.auth
@@ -32,6 +28,6 @@ const mapStateToProps = (state) => {
 export default compose(
     connect(mapStateToProps),
     firestoreConnect([
-        { collection: 'posts' }
+        { collection: 'posts', orderBy: ['createdAt', 'desc'] }
     ])
 )(Dashboard);
