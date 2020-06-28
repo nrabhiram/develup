@@ -34,6 +34,7 @@ const PostSummary = ({ post }) => {
                         <h6 className="card-subtitle ml-2 text-muted">{post.authorFirstName} {post.authorLastName}</h6>
                     </div>
                         <p className="card-text">{formatPostContent}</p>
+                        {post.link ? <div className="wrapper"><span>Link: </span><a href={post.link} target="_blank">{post.link}</a></div> : null }
                     <Link to={'/post/' + post.id}>
                         <p className="mt-2"><em>See more</em></p>
                     </Link>

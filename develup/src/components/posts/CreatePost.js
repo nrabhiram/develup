@@ -5,7 +5,8 @@ import { createProject } from '../../store/actions/postAction';
 class CreatePost extends Component {
     state = {
         title: '',
-        content: ''
+        content: '',
+        link: ''
     }
     handleChange = (e) => {
         this.setState({
@@ -23,10 +24,13 @@ class CreatePost extends Component {
                 <h2 className="titles">Create Post</h2>
                 <form onSubmit={this.handleSubmit}>
                     <div className="form-group">
-                        <input type="text" className="form-control" id="title" placeholder="Title" onChange={this.handleChange} />
+                        <input type="text" className="form-control" id="title" placeholder="Title" required onChange={this.handleChange} />
                     </div>
                     <div className="form-group">
-                        <textarea className="form-control" id="content" rows="10" placeholder="Content" onChange={this.handleChange}></textarea>
+                        <textarea className="form-control" id="content" rows="10" placeholder="Content" required onChange={this.handleChange}></textarea>
+                    </div>
+                    <div className="form-group">
+                        <input type="text" className="form-control" id="link" placeholder="Link" onChange={this.handleChange} />
                     </div>
                     <button type="submit" className="btn btn-primary">Create post</button>
                 </form>
