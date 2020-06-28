@@ -8,7 +8,7 @@ import ProfileSummary from './ProfileSummary';
 class ProfilesList extends Component {
     render() {
         const { auth, users } = this.props;
-        if (!auth.uid) return <Redirect to='/signin' />
+        if (!auth.uid) return <Redirect to='/' />
         const otherUsers = users ? users.filter(user => {
             return user.id !== auth.uid
         }) : null;

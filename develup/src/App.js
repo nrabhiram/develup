@@ -7,25 +7,30 @@ import SignUp from './components/auth/SignUp';
 import CreatePost from './components/posts/CreatePost';
 import ProfilesList from './components/profiles/ProfilesList';
 import ProfileDetails from './components/profiles/ProfileDetails';
+import Home from './components/layout/Home';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import ScrollToTop from './ScrollToTop';
 
 
 class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <div className="App">
-          <Navbar />
-        </div>
-        <Switch>
-          <Route exact path="/" component={Dashboard}></Route>
-          <Route path="/post/:post_id" component={PostDetails}></Route>
-          <Route path="/signin" component={SignIn}></Route>
-          <Route path="/signup" component={SignUp}></Route>
-          <Route path="/create" component={CreatePost}></Route>
-          <Route path="/profiles" component={ProfilesList}></Route>
-          <Route path="/profile/:profile_id" component={ProfileDetails}></Route>
-        </Switch>
+        <ScrollToTop>
+          <div className="App">
+            <Navbar />
+          </div>
+          <Switch>
+            <Route exact path = "/" component={Home}></Route>
+            <Route path="/feed" component={Dashboard}></Route>
+            <Route path="/post/:post_id" component={PostDetails}></Route>
+            <Route path="/signin" component={SignIn}></Route>
+            <Route path="/signup" component={SignUp}></Route>
+            <Route path="/create" component={CreatePost}></Route>
+            <Route path="/profiles" component={ProfilesList}></Route>
+            <Route path="/profile/:profile_id" component={ProfileDetails}></Route>
+          </Switch>
+        </ScrollToTop>
       </BrowserRouter>
     )
   }

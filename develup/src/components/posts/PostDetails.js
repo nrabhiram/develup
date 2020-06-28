@@ -26,7 +26,7 @@ class PostDetails extends Component {
     render() {
         console.log(this.props);
         const { post, auth, comments } = this.props;
-        if (!auth.uid) return <Redirect to='/signin' />
+        if (!auth.uid) return <Redirect to='/' />
         if (post) {
             return (
                 <div className="container">

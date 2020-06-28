@@ -8,7 +8,7 @@ import PostSummary from '../posts/PostSummary';
 const ProfileDetails = (props) => {
     console.log(props);
     const { auth, user, userPosts } = props;
-    if (!auth.uid) return <Redirect to='/signin' />
+    if (!auth.uid) return <Redirect to='/' />
     const postsList = userPosts ? userPosts.map(post => {
         return <PostSummary key={post.id} post={post} />
     }) : null;
